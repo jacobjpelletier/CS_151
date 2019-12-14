@@ -12,12 +12,6 @@ Prerequisites:  MATH 152 (may be taken concurrently).
 Textbook: John Lewis and William Loftus, Java Software Solutions, 9th  edition, Pearson, 2017.
 
 Instructor:  Neli P. Zlatareva, Ph.D., Professor of Computer Science.
-	    Office           MS303.
-                   Phone           (860) 832-2723.
-                   E-mail           zlatareva@ccsu.edu
-                   Web site        http://www.cs.ccsu.edu/~neli/
-                   Office hours  MW 12:05 p.m. – 1:15 p.m., M 5:15 p.m. – 5:50 p.m.
-                                         TR 10:45 a.m. - 12:00 a.m., 1:30 p.m. – 2:00 p.m.
 
 Course Objectives:  Having completed this course successfully, the student should
 

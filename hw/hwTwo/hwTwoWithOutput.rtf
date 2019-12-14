@@ -1,0 +1,166 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\csgray\c0;\csgray\c100000;}
+\margl1440\margr1440\vieww12240\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf2 \cb3 \CocoaLigature0 // HW Two Problem One Code\
+\
+/*\
+Problem 1 (From L&L, chapter2 projects) Write an application that reads values\
+representing time durations in hours, minutes, and seconds, and then prints the \
+equivalent total number of seconds (EX. 1 hour, 28 minutes and 42 seconds is \
+equivalent to 5322 seconds.)\
+*/\
+\
+// import scanner \
+import java.util.Scanner;\
+\
+public class hwTwoProbOne\
+\{\
+  public static void main(String[] args)\
+  \{\
+    // declare necessary variables\
+    int hours, mins, secs, totalsecs;    \
+\
+    // create Scanner object\
+    Scanner scan = new Scanner(System.in);\
+    \
+    // gather hours from user\
+    System.out.print("Enter number of hours: ");\
+    hours = scan.nextInt();\
+\
+    // gather minutes from user\
+    System.out.print("Enter number of minutes: ");\
+    mins = scan.nextInt();\
+\
+    // gather seconds from user\
+    System.out.print("Enter number of seconds: ");\
+    secs = scan.nextInt();\
+\
+    // calculate total amount of seconds from user input\
+    totalsecs = (hours*60*60)+(mins*60)+(secs);\
+\
+	// Display total amount of seconds to user\
+    System.out.println(hours + " hours, " + mins + " minutes, and " + secs + " seconds is equivalent to " +\
+      totalsecs + " seconds.");\
+  \}\
+\}\
+\
+\
+// HW Two Problem One Output\
+\
+Enter number of hours: 1\
+Enter number of minutes: 0\
+Enter number of seconds: 0\
+1 hours, 0 minutes, and 0 seconds is equivalent to 3600 seconds.\
+\
+// HW Two Problem Two Code\
+\
+/*\
+Problem 2 (From L&L, chapter3 projects)  Write an application that reads the (x,y)\
+coordinates for two points. Compute the distance between them using the following\
+formula\
+\
+	distance = sqrt((x2 - x1)^2 + (y2 - y1)^2 (see the book)\
+*/\
+\
+// import scanner\
+import java.util.Scanner;\
+\
+// import lang.Math, since it is part of lang it is not necessary to make explicit\
+import java.lang.Math; \
+\
+public class hwTwoProbTwo\
+\{\
+  public static void main(String[] args)\
+  \{\
+	\
+	// Declare necessary variables\
+    double x1, x2, y1, y2, xSquared, ySquared, distance;\
+    \
+	// Create new Scanner object\
+    Scanner scan = new Scanner(System.in);  \
+    \
+	// Obtain x of first coordinate from user\
+    System.out.print("Enter x value of first coordinate: ");\
+    x1 = scan.nextDouble();\
+\
+	// Obtain y of first coordinate from user\
+    System.out.print("Enter y value of first coordinate: ");\
+    y1 = scan.nextDouble();\
+\
+	// Obtain x of second coordinate from user\
+    System.out.print("Enter x value of second coordinate: ");\
+    x2 = scan.nextDouble();\
+\
+	// Obtain y of second coordinate from user\
+    System.out.print("Enter y value of second coordinate: ");\
+    y2 = scan.nextDouble();\
+\
+	// calculate x1+x2 squared\
+    xSquared = Math.pow((x1 + x2), 2);\
+\
+	// calculate y1+y2 squared\
+    ySquared = Math.pow((y1 + y2), 2);	\
+\
+	// calculate distance\
+    distance = Math.sqrt(xSquared + ySquared);\
+\
+	// display distance to user\
+    System.out.println("Distance between first and second coordinate: " + distance);\
+  \}\
+\}\
+\
+// HW Two Problem Two Output\
+\
+Enter x value of first coordinate: 2\
+Enter y value of first coordinate: 2\
+Enter x value of second coordinate: 4\
+Enter y value of second coordinate: 4\
+Distance between first and second coordinate: 8.48528137423857\
+\
+// HW Two Problem Three Code\
+\
+/*\
+Problem 3 (From L&L, chapter3 projects)  Write an application that reads the \
+radius of a sphere and prints its volume and surface areas, where\
+\
+	volume = 4 / 3 * PI * radius^3\
+	surface = 4 * PI * radius^2      (see the book)\
+*/\
+\
+// import scanner class from util package\
+import java.util.Scanner; \
+\
+public class hwTwoProbThree\
+\{\
+  public static void main(String[] args)\
+  \{\
+	// declare necessary variables\
+    double radius, volume, surface;\
+    \
+	// create new Scanner object\
+    Scanner scan = new Scanner(System.in);\
+    \
+	// obtain radius from user\
+    System.out.print("Enter radius: ");\
+    radius = scan.nextDouble();\
+\
+	// calculate volume of given radius\
+    volume = (4d/3d) * (Math.PI) * (Math.pow(radius, 3));\
+\
+	// calculate SA of given radius\
+    surface = 4d * (Math.PI) * (Math.pow(radius,2));\
+\
+	//display to user\
+    System.out.println("A sphere with a radius of " + radius + " has a volume of " +\
+      volume + " and has a surface area of " + surface + "."); \
+  \}\
+\}\
+\
+// HW Two Problem Three Output\
+\
+Enter radius: 1\
+A sphere with a radius of 1.0 has a volume of 4.1887902047863905 and has a surface area of 12.566370614359172.}

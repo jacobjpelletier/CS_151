@@ -1,0 +1,113 @@
+// First Problem Code
+
+public class hwOneProbOne 
+{
+  //print name, major, and stars here
+  public static void main(String[] args)
+  {
+    System.out.println("********************");
+    System.out.println("* Jacob  Pelletier *");
+    System.out.println("* Computer Science *");
+    System.out.println("********************");
+  }
+}
+
+// First Problem Output
+
+********************
+* Jacob  Pelletier *
+* Computer Science *
+********************
+
+// ------------------------------------------------------------------------
+
+// Second Problem Code
+
+/*
+Write an application program that prints AAAAAAA BBBBBBB
+CCCCCCC in three different ways:
+    a)  on one line
+    b)  on three lines
+    c)  inside a box made up of the characters * and =
+*/
+
+public class hwOneProbTwo
+{
+  public static void main(String[] args)
+  {
+    //print on one line	
+    System.out.println("\npart a:\n");
+    System.out.println("AAAAAAA BBBBBBB CCCCCCC");
+    //print on three lines
+    System.out.println("\npart b:\n");
+    System.out.println("AAAAAAA");
+    System.out.println("BBBBBBB");
+    System.out.println("CCCCCCC");
+    System.out.println("\npart c:\n");
+    System.out.println("*==================*");
+    System.out.println("*      AAAAAAA     *");
+    System.out.println("*      BBBBBBB     *");
+    System.out.println("*      CCCCCCC     *");
+    System.out.println("*==================*");
+  }
+}
+
+// Second Problem Output
+
+part a:
+
+AAAAAAA BBBBBBB CCCCCCC
+
+part b:
+
+AAAAAAA
+BBBBBBB
+CCCCCCC
+
+part c:
+
+*==================*
+*      AAAAAAA     *
+*      BBBBBBB     *
+*      CCCCCCC     *
+*==================*
+
+// ------------------------------------------------------------------------
+
+// Third Problem Code
+
+/*
+Write an application program that converts miles to
+kilometers. 1 mile = 1.60935 kilometers. Read the miles value from
+the user as a floating point value.
+*/
+
+import java.util.Scanner;
+
+public class hwOneProbThree
+{
+    public static void main(String[] args)
+    {
+        // create memory space for Km and miles
+        float kiloMeter, miles;
+
+        // create a new Scanner object called scan, argument being standard input system System.in
+        Scanner scan = new Scanner(System.in);
+
+        // obtain data from user
+        System.out.print("Enter number of miles you would like converter to kilometers: ");
+        miles = scan.nextFloat();
+
+        kiloMeter = miles * (float) 1.60935;
+
+        // return calculation to user
+        System.out.println(miles + " miles equals " + kiloMeter + " kilometers.");
+    }
+}
+
+
+
+// Third Problem Output
+Enter number of miles you would like converter to kilometers: 3.18
+3.18 miles equals 5.117733 kilometers.
+

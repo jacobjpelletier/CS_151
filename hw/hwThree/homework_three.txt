@@ -1,0 +1,229 @@
+/*
+Problem 1: Design and implement an application that produces a multipl$
+table showing the results of multiplying the integers 1 through 12 by $
+*/
+
+public class hwThreeProbOne {
+
+    public static void main(String[] args)
+    {
+        int row = 1, column = 1;
+
+        while (row < 13)
+        {
+            System.out.print((column * row) + "\t");
+            column ++;
+            if (column % 13 == 0)
+            {
+                System.out.println();
+                column = 1;
+                row ++;
+            }
+        }
+    }
+}
+
+// PROBLEM ONE OUTPUT
+
+1	2	3	4	5	6	7	8	9	10	11	12	
+2	4	6	8	10	12	14	16	18	20	22	24	
+3	6	9	12	15	18	21	24	27	30	33	36	
+4	8	12	16	20	24	28	32	36	40	44	48	
+5	10	15	20	25	30	35	40	45	50	55	60	
+6	12	18	24	30	36	42	48	54	60	66	72	
+7	14	21	28	35	42	49	56	63	70	77	84	
+8	16	24	32	40	48	56	64	72	80	88	96	
+9	18	27	36	45	54	63	72	81	90	99	108	
+10	20	30	40	50	60	70	80	90	100	110	120	
+11	22	33	44	55	66	77	88	99	110	121	132	
+12	24	36	48	60	72	84	96	108	120	132	144
+
+//--------------------------------------------------------------------------------------------------------------
+
+/*
+Problem 2: Create a modified version of the PalidromeTester program from the
+textbook so that the spaces and punctuations are not considered when determining
+whether a string is a palidrome. Think carefully about your design -- a detailed
+pseudocode will really help.
+*/
+
+import java.util.Scanner;
+
+public class hwThreeProbTwo
+{
+    public static void main(String[] args)
+    {
+        String str, newStr = "", another = "y";;
+        int left, right;
+
+        Scanner scan = new Scanner(System.in);
+
+        while (another.equalsIgnoreCase("y")) // allows y or Y
+        {
+            System.out.print("Enter a palindrome: ");
+            // initialize user value to input and make all lowercase
+            str = scan.nextLine().toLowerCase();
+
+            // for loop  to create filtered string
+            for (int item = 0; item <= str.length()-1; item++)
+            {
+                // if input is a valid letter
+                if (str.charAt(item) > 96)
+                {
+                    // use string concatenation to convert char to String
+                    String newChar = "" + str.charAt(item);
+                    // add new character of type String to new filtered string
+                    newStr = newStr + newChar;
+                }
+                else {
+                    // otherwise, continue with filter loop
+                    continue;
+                }
+            }
+
+            // DEBUGGER
+            //System.out.println(newStr);
+
+            // Test filtered String
+            left = 0;
+            right = newStr.length() - 1;
+
+            while (newStr.charAt(left) == newStr.charAt(right) && left < right)
+            {
+                left++;
+                right--;
+            }
+
+            System.out.println();
+
+            if (left < right)
+                System.out.println("That string is NOT a palindrome.");
+            else
+                System.out.println("This string IS a palindrome.");
+
+            System.out.println();
+            System.out.print("Test another palindrome (y/n)? ");
+            another = scan.nextLine();
+        }
+    }
+}
+
+// VERSION 2
+
+/*
+Problem 2: Create a modified version of the PalidromeTester program from the
+textbook so that the spaces and punctuations are not considered when determining
+whether a string is a palidrome. Think carefully about your design -- a detailed
+pseudocode will really help.
+*/
+
+import java.util.Scanner;
+
+public class hwThreeProbTwoV2
+{
+    public static void main(String[] args)
+    {
+        String str, another = "y";
+        int left, right;
+
+        Scanner scan = new Scanner(System.in);
+
+        while (another.equalsIgnoreCase("y")) // accepts y and Y
+        {
+            System.out.print("Enter a potential palindrome: ");
+            str = scan.nextLine().toLowerCase();
+
+            left = 0;
+            right = str.length()-1;
+
+            while (str.charAt(left) == str.charAt(right) && left < right)
+            {
+                left++;
+                // tests whether character is punctuation (33[!], 46[.], 96[,], 63[?,]  or space (32)
+                while (str.charAt(left) == 32 || str.charAt(left) == 33 || str.charAt(left) == 46 ||
+                        str.charAt(left) == 96 || str.charAt(left) == 63)
+                {
+                    left++;
+                }
+                right--;
+                // tests whether character is punctuation (33[!], 46[.], 96[,], 63[?,]  or space (32)
+                while (str.charAt(right) == 32 || str.charAt(right) == 33 || str.charAt(right) == 46 ||
+                        str.charAt(right) == 96 || str.charAt(right) == 63)
+                {
+                    right--;
+                }
+		// DEBUGGER
+                System.out.println("L: " + left + " R: " + right);
+            }
+
+            if (left < right)
+            {
+                System.out.println("That string is NOT a palindrome.");
+
+            }
+            else
+                System.out.println("That string IS a palindrome.");
+
+            System.out.println();
+            System.out.print("Test another palindrome (y/n)? ");
+            another = scan.nextLine();
+        }
+    }
+}
+
+// PROBLEM 2 OUTPUT
+
+Enter a potential palindrome: racecar
+L: 1 R: 5
+L: 2 R: 4
+L: 3 R: 3
+That string IS a palindrome.
+
+Test another palindrome (y/n)? y
+Enter a potential palindrome: r a c e c a r
+L: 2 R: 10
+L: 4 R: 8
+L: 6 R: 6
+That string IS a palindrome.
+
+Test another palindrome (y/n)? 
+
+//--------------------------------------------------------------------------------------------------------------
+
+/*
+Problem 3: Mexico's population is 62 million and is growing at the annual
+rate of 7%. The United States' current population is 280 million and is
+growing at the annual rate of 2%. If these two countries were to
+maintain their current rates of growth, in how many years will Mexico's
+population be more than half that of the United States? Your program
+should answer this question.
+*/
+
+public class hwThreeProbThree
+{
+    public static void main(String[] args)
+    {
+        int mexPop = 62000000, usPop = 280000000, years = 0;
+
+        while (mexPop < (usPop/2))
+        {
+            mexPop = (int) ((mexPop * 0.07) + mexPop);
+            usPop = (int) ((usPop * 0.02) + usPop);
+            years++;
+            // DEBUGGER
+            // System.out.println("Mex: " + mexPop + "\tUS: " + usPop + "\tYears: " + years);
+        }
+        System.out.println("It will take " + years + " years for the Mexican population to be more than half" +
+                " of America's population at annual growth rates of 7% and 2%, respectively. The Mexican populat$
+                " would be " + mexPop + " while America's would be " + usPop + ".");
+    }
+}
+
+
+// PROBLEM 3 OUTPUT
+
+It will take 18 years for the Mexican population to be more than half of America's population at annual growth rates of 7% and 2%, respectively. The Mexican population would be 209555788 while America's would be 399908940.
+
+
+
+

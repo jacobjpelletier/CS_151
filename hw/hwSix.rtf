@@ -1,0 +1,422 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww22420\viewh17920\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs18 \cf0 // <><><><><><><><><> HOMEWORK SIX <><><><><><><><><> \
+\
+// <><><><><><><><><> PROBLEM ONE SOLUTION <><><><><><><><><>\
+\
+//**********************************************************************************************************************\
+// Problem 8.1\
+// Write a program that reads an arbitrary number of integers that are in the range 0 to 50 inclusive and\
+// counts how many occurrences of each are entered. Indicate the end of the input by a value outside of the range. After\
+// all input has been processed, print all of the values (with the number of occurrences) that were entered one or more\
+// times.\
+//**********************************************************************************************************************\
+\
+import java.util.Scanner;\
+import java.util.Random;\
+\
+public class pp81 \{\
+\
+    public static void main(String[] args) \{\
+\
+        Scanner scan = new Scanner(System.in);\
+\
+        final int LIMIT = 52;\
+        int control = 0, current = 0, arbitraryTotal, arbitraryElem;\
+\
+        int[] range = new int[LIMIT];\
+        int[] counter = new int[LIMIT];\
+        int[] results = new int[LIMIT];\
+\
+        System.out.print("Enter \\"0\\" if you would like to enter your own integers to evaluate, enter 99 when done" +\
+                "\\nOtherwise enter " + "any other integer if you would like to evaluate a random input of integers: ");\
+        int input1 = scan.nextInt();\
+        if (input1 == 0) \{\
+            while (control <= LIMIT) \{\
+                System.out.print("Enter an integer: ");\
+                int input2 = scan.nextInt();\
+                if (input2 <= 51 && input2 >= 0) \{\
+                    range[current] = input2;\
+                    control = input2;\
+                    current++;\
+                \} else if (input2 == 99) \{\
+                    control = 99;\
+                \} else \{\
+                    System.out.println("Please enter an integer between 0 and 51.");\
+                \}\
+            \}\
+            System.out.println("\\nYour input:");\
+            // Creates array of user inputs\
+            for (int num = 0; num < current; num++) \{\
+                System.out.print(range[num] + " ");\
+            \}\
+            System.out.println();\
+        \}\
+        else \{\
+            // Creates random array\
+            Random generator = new Random();\
+            arbitraryTotal = generator.nextInt(LIMIT);\
+\
+            System.out.println("\\nRandom input:");\
+            for (int num = 0; num <= arbitraryTotal; num++) \{\
+                arbitraryElem = generator.nextInt(LIMIT);\
+                range[num] = arbitraryElem;\
+                current++;\
+                System.out.print(arbitraryElem + " ");\
+            \}\
+            System.out.println();\
+        \}\
+\
+        // Creates array to count against\
+        for (int num = 0; num < LIMIT; num++) \{\
+            counter[num] = num;\
+        \}\
+\
+        // Compare arrays to count number of integer occurances\
+        for (int num = 0; num < LIMIT; num++) \{\
+            for (int x = 0; x <= current; x++) \{\
+                if (range[x] == counter[num])\
+                    results[num]++;\
+            \}\
+        \}\
+\
+        System.out.println();\
+        // Display results\
+        for (int num = 0; num < LIMIT; num++) \{\
+            if (num == 0) \{\
+                results[num] = results[num] - 1; // results[LIMIT] provides an extra 0 than desired due to\
+            \}\
+            System.out.print("Number of " + counter[num] + "'s entered: " + results[num] + "\\n");\
+        \}\
+        System.out.println();\
+    \}\
+\}\
+\
+// <><><><><><><><><> PROBLEM ONE OUTPUT <><><><><><><><><>\
+\
+Enter "0" if you would like to enter your own integers to evaluate, enter 99 when done\
+Otherwise enter any other integer if you would like to evaluate a random input of integers: 0\
+Enter an integer: 1\
+Enter an integer: 2\
+Enter an integer: 3\
+Enter an integer: 4\
+Enter an integer: 5\
+Enter an integer: 6\
+Enter an integer: 7\
+Enter an integer: 8\
+Enter an integer: 9\
+Enter an integer: 0\
+Enter an integer: 40\
+Enter an integer: 48\
+Enter an integer: 49 \
+Enter an integer: 50\
+Enter an integer: 51\
+Enter an integer: 52\
+Please enter an integer between 0 and 51.\
+Enter an integer: 53\
+Please enter an integer between 0 and 51.\
+Enter an integer: 54\
+Please enter an integer between 0 and 51.\
+Enter an integer: 99\
+\
+Your input:\
+1 2 3 4 5 6 7 8 9 0 40 48 49 50 51 \
+\
+Number of 0's entered: 1\
+Number of 1's entered: 1\
+Number of 2's entered: 1\
+Number of 3's entered: 1\
+Number of 4's entered: 1\
+Number of 5's entered: 1\
+Number of 6's entered: 1\
+Number of 7's entered: 1\
+Number of 8's entered: 1\
+Number of 9's entered: 1\
+Number of 10's entered: 0\
+Number of 11's entered: 0\
+Number of 12's entered: 0\
+Number of 13's entered: 0\
+Number of 14's entered: 0\
+Number of 15's entered: 0\
+Number of 16's entered: 0\
+Number of 17's entered: 0\
+Number of 18's entered: 0\
+Number of 19's entered: 0\
+Number of 20's entered: 0\
+Number of 21's entered: 0\
+Number of 22's entered: 0\
+Number of 23's entered: 0\
+Number of 24's entered: 0\
+Number of 25's entered: 0\
+Number of 26's entered: 0\
+Number of 27's entered: 0\
+Number of 28's entered: 0\
+Number of 29's entered: 0\
+Number of 30's entered: 0\
+Number of 31's entered: 0\
+Number of 32's entered: 0\
+Number of 33's entered: 0\
+Number of 34's entered: 0\
+Number of 35's entered: 0\
+Number of 36's entered: 0\
+Number of 37's entered: 0\
+Number of 38's entered: 0\
+Number of 39's entered: 0\
+Number of 40's entered: 1\
+Number of 41's entered: 0\
+Number of 42's entered: 0\
+Number of 43's entered: 0\
+Number of 44's entered: 0\
+Number of 45's entered: 0\
+Number of 46's entered: 0\
+Number of 47's entered: 0\
+Number of 48's entered: 1\
+Number of 49's entered: 1\
+Number of 50's entered: 1\
+Number of 51's entered: 1\
+\
+\
+// test random input method\
+\
+Enter "0" if you would like to enter your own integers to evaluate, enter 99 when done\
+Otherwise enter any other integer if you would like to evaluate a random input of integers: 8\
+\
+Random input:\
+44 24 0 8 20 49 30 36 \
+\
+Number of 0's entered: 1\
+Number of 1's entered: 0\
+Number of 2's entered: 0\
+Number of 3's entered: 0\
+Number of 4's entered: 0\
+Number of 5's entered: 0\
+Number of 6's entered: 0\
+Number of 7's entered: 0\
+Number of 8's entered: 1\
+Number of 9's entered: 0\
+Number of 10's entered: 0\
+Number of 11's entered: 0\
+Number of 12's entered: 0\
+Number of 13's entered: 0\
+Number of 14's entered: 0\
+Number of 15's entered: 0\
+Number of 16's entered: 0\
+Number of 17's entered: 0\
+Number of 18's entered: 0\
+Number of 19's entered: 0\
+Number of 20's entered: 1\
+Number of 21's entered: 0\
+Number of 22's entered: 0\
+Number of 23's entered: 0\
+Number of 24's entered: 1\
+Number of 25's entered: 0\
+Number of 26's entered: 0\
+Number of 27's entered: 0\
+Number of 28's entered: 0\
+Number of 29's entered: 0\
+Number of 30's entered: 1\
+Number of 31's entered: 0\
+Number of 32's entered: 0\
+Number of 33's entered: 0\
+Number of 34's entered: 0\
+Number of 35's entered: 0\
+Number of 36's entered: 1\
+Number of 37's entered: 0\
+Number of 38's entered: 0\
+Number of 39's entered: 0\
+Number of 40's entered: 0\
+Number of 41's entered: 0\
+Number of 42's entered: 0\
+Number of 43's entered: 0\
+Number of 44's entered: 1\
+Number of 45's entered: 0\
+Number of 46's entered: 0\
+Number of 47's entered: 0\
+Number of 48's entered: 0\
+Number of 49's entered: 1\
+Number of 50's entered: 0\
+Number of 51's entered: 0\
+\
+// <><><><><><><><><> PROBLEM TWO SOLUTION <><><><><><><><><>\
+\
+import java.text.NumberFormat;\
+\
+public class pp86 \{\
+\
+    public static void main(String[] args) \{\
+\
+        Bank landl = new Bank(40); //The L&L Bank can handle up to 40 customers who have savings accounts.\
+\
+        System.out.println(landl);\
+\
+        System.out.println();\
+\
+        landl.addInterestToAll();\
+\
+        System.out.println(landl);\
+    \}\
+\}\
+\
+class Bank \{\
+    //------------------------------------------------------------------------------------------------------------------\
+    // Design and implement a program that manages the accounts.\
+    //------------------------------------------------------------------------------------------------------------------\
+    private Account[] bankAccounts;\
+    private int customerCount;\
+\
+    public Bank(int customers) \{\
+\
+        bankAccounts = new Account[customers];\
+        customerCount = customers;\
+\
+        for (int num = 0; num < customerCount; num ++) \{\
+            // instantiate 40 customers with a unique name, bank acount number, and amount in bank.\
+            bankAccounts[num] = new Account("Smith" + (num+1), ((num*3)+1)+(num*20)+(num*100),\
+                    num*100);\
+        \}\
+    \}\
+\
+    public void addInterestToAll() \{\
+\
+        for (Account element : bankAccounts) \{\
+            element.addInterest();\
+        \}\
+    \}\
+\
+    public String toString() \{\
+        String result = "";\
+        for (Account element : bankAccounts) \{\
+            result += element + "\\n";\
+        \}\
+        return result;\
+    \}\
+\}\
+\
+class Account \{\
+\
+    private final double RATE = 0.03; // interest rate of 3%\
+\
+    private long acctNumber;\
+    private double balance;\
+    private String name;\
+\
+    //------------------------------------------------------------------------------------------------------------------\
+    // Sets up the account by defiing its owner, account number, and initial balance.\
+    //------------------------------------------------------------------------------------------------------------------\
+    public Account(String owner, long account, double initial) \{\
+        name = owner;\
+        acctNumber = account;\
+        balance = initial;\
+    \}\
+\
+    public Account() \{\
+        String name = "Smith";\
+        int acctNumber = 999;\
+        double balance = 100.00;\
+    \}\
+\
+    //------------------------------------------------------------------------------------------------------------------\
+    // Deposits the specified amount into the account. Returns the new balance.\
+    // Keep track of the key information and allow each customer to make deposits and withdrawals.\
+    //------------------------------------------------------------------------------------------------------------------\
+    public double deposit(double amount) \{\
+        double temp = 0;\
+        if (amount > 0) \{\
+            temp = balance + amount;\
+        \}\
+        balance = temp;\
+        return balance;\
+    \}\
+\
+    //------------------------------------------------------------------------------------------------------------------\
+    // Withdraws the specified amount from the account and apples the fee. Returns the new balance\
+    // Keep track of the key information and allow each customer to make deposits and withdrawals.\
+    //------------------------------------------------------------------------------------------------------------------\
+    public double withdraw(double amount, double fee) \{\
+        temp = 0;\
+        if ((amount + fee) < balance) \{\
+            balance = balance - amount - fee;\
+        \}\
+        balance = temp;\
+        return balance;\
+    \}\
+\
+    //------------------------------------------------------------------------------------------------------------------\
+    // Adds interest to the account and returns the new balance\
+    //------------------------------------------------------------------------------------------------------------------\
+    public double addInterest() \{\
+        balance += (balance*RATE);\
+        return balance;\
+    \}\
+\
+    //------------------------------------------------------------------------------------------------------------------\
+    // Returns balance of current account\
+    //------------------------------------------------------------------------------------------------------------------\
+    public double getBalance() \{\
+        return balance;\
+    \}\
+\
+    //------------------------------------------------------------------------------------------------------------------\
+    // Returns a one-line description of the account as a string\
+    //------------------------------------------------------------------------------------------------------------------\
+    public String toString() \{\
+        NumberFormat fmt = NumberFormat.getCurrencyInstance();\
+        return acctNumber + "\\t" + name + "\\t" + fmt.format(balance);\
+    \}\
+\}\
+\
+\
+// <><><><><><><><><> PROBLEM TWO OUTPUT <><><><><><><><><>\
+\
+1       Smith1  $0.00\
+124     Smith2  $100.00\
+247     Smith3  $200.00\
+370     Smith4  $300.00\
+493     Smith5  $400.00\
+616     Smith6  $500.00\
+739     Smith7  $600.00\
+862     Smith8  $700.00\
+985     Smith9  $800.00\
+1108    Smith10 $900.00\
+1231    Smith11 $1,000.00\
+1354    Smith12 $1,100.00\
+1477    Smith13 $1,200.00\
+1600    Smith14 $1,300.00\
+1723    Smith15 $1,400.00\
+1846    Smith16 $1,500.00\
+1969    Smith17 $1,600.00\
+2092    Smith18 $1,700.00\
+2215    Smith19 $1,800.00\
+2338    Smith20 $1,900.00\
+2461    Smith21 $2,000.00\
+2584    Smith22 $2,100.00\
+2707    Smith23 $2,200.00\
+2830    Smith24 $2,300.00\
+2953    Smith25 $2,400.00\
+3076    Smith26 $2,500.00\
+3199    Smith27 $2,600.00\
+3322    Smith28 $2,700.00\
+3445    Smith29 $2,800.00\
+3568    Smith30 $2,900.00\
+3691    Smith31 $3,000.00\
+3814    Smith32 $3,100.00\
+3937    Smith33 $3,200.00\
+4060    Smith34 $3,300.00\
+4183    Smith35 $3,400.00\
+4306    Smith36 $3,500.00\
+4429    Smith37 $3,600.00\
+4552    Smith38 $3,700.00\
+4675    Smith39 $3,800.00\
+4798    Smith40 $3,900.00\
+\
+\
+\
+\
+\
+\
+}
